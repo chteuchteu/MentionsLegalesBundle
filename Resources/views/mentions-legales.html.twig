@@ -36,10 +36,10 @@
         <dd><a href="{{ editeur.url }}">{{ editeur.nom }}</a></dd>
 
         <dt>Responsable publication</dt>
-        <dd>{{ responsable_publication.nom }} – {{ responsable_publication.email }}</dd>
+        <dd>{{ responsable_publication.nom }} – <span class="email-rot">{{ responsable_publication.email|rot13 }}</span></dd>
 
         <dt>Webmaster</dt>
-        <dd>{{ webmaster.nom }} – {{ webmaster.email }}</dd>
+        <dd>{{ webmaster.nom }} – <span class="email-rot">{{ webmaster.email|rot13 }}</span></dd>
 
         <dt>Hébergeur</dt>
         <dd>{{ hebergeur.nom }} – {{ hebergeur.adresse }}</dd>
@@ -95,14 +95,17 @@
 </div>
 
 <script>
-    $(document).ready(function() {
+    (function() {
         var unRot13 = function(string) {
             return string.replace(/[a-zA-Z]/g,function(c){return String.fromCharCode((c<="Z"?90:122)>=(c=c.charCodeAt(0)+13)?c:c-26);});
         };
 
         // De-obfuscate e-mail addresses
-        $('[data-type="email"]').each(function() {
-            $(this).text(unRot13($(this).text()));
-        });
-    });
+        var elems = document.getElementsByClassName('email-rot'),
+            elem = null;
+        for (var i=0, l=elems.length; i<l; i++) {
+            elem = elems[i];
+            elem.innerHTML = unRot13(elem);
+        }
+    })();
 </script>
