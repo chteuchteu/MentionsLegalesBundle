@@ -1,4 +1,4 @@
-{% set url_displayname = url_displayname | default(url_displayname | replace({
+{% set url_displayname = url_displayname | default(url | replace({
     'http://': '',
     'https://': '',
     '/': ''
