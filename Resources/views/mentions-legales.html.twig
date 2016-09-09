@@ -23,7 +23,7 @@
         <dt>Capital social</dt>
         <dd>{{ proprietaire.capital_social }}</dd>
 
-        {% if proprietaire.more %}
+        {% if proprietaire.more is defined %}
             {% for key, value in proprietaire.more %}
                 <dt>{{ key }}</dt>
                 <dd>{{ value }}</dd>
