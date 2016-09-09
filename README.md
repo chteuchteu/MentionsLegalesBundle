@@ -5,34 +5,38 @@ Read [Quelles sont les mentions obligatoires sur un site internet ?](https://www
 on service-public.fr for more information.
 
 ## Usage
-```twig
-{% include 'MentionsLegalesBundle::mentions-legales.html.twig' with {
-    url: absolute_url(path('homepage')),
-    proprietaire: {
-        raison_sociale: '',
-        forme_juridique: '',
-        adresse: '',
-        capital_social: '',
-        more: {
-            'N° d\'immatriculation au répertoire des métiers': '123456789'
+1. `composer require chteuchteu/mentions-legales-bundle`
+
+2. Include this anywhere you want (a new `/mentions-legales` route with its own twig page would be great):
+    
+    ```twig
+    {% include '@MentionsLegales/mentions-legales.html.twig' with {
+        url: absolute_url(path('homepage')),
+        proprietaire: {
+            raison_sociale: '',
+            forme_juridique: '',
+            adresse: '',
+            capital_social: '',
+            more: {
+                'N° d\'immatriculation au répertoire des métiers': '123456789'
+            }
+        },
+        editeur: {
+            nom: '',
+            statut: '',
+            url: ''
+        },
+        responsable_publication: {
+            nom: '',
+            email: ''
+        },
+        webmaster: {
+            nom: '',
+            email: ''
+        },
+        hebergeur: {
+            nom: '',
+            adresse: ''
         }
-    },
-    editeur: {
-        nom: '',
-        statut: '',
-        url: ''
-    },
-    responsable_publication: {
-        nom: '',
-        email: ''
-    },
-    webmaster: {
-        nom: '',
-        email: ''
-    },
-    hebergeur: {
-        nom: '',
-        adresse: ''
-    }
-} %}
-``̀`
+    } %}
+    ``̀`
