@@ -23,10 +23,12 @@
         <dt>Capital social</dt>
         <dd>{{ proprietaire.capital_social }}</dd>
 
-        {% for key, value in proprietaire.more %}
-            <dt>{{ key }}</dt>
-            <dd>{{ value }}</dd>
-        {% endfor %}
+        {% if proprietaire.more %}
+            {% for key, value in proprietaire.more %}
+                <dt>{{ key }}</dt>
+                <dd>{{ value }}</dd>
+            {% endfor %}
+        {% endif %}
     </dl>
 
     <dl class="dl-horizontal">
