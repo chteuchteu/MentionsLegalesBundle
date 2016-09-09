@@ -1,0 +1,24 @@
+{
+    "name": "chteuchteu/mentions-legales-bundle",
+    "description": "Easily include french legal notice into your symfony website",
+    "homepage": "https://github.com/chteuchteu/MentionsLegalesBundle",
+    "license": "GNU GPL v3.0",
+    "authors": [
+        {
+            "name": "Quentin Stoeckel",
+            "email": "stoeckel.quentin@gmail.com"
+        }
+    ],
+    "keywords": [
+        "symfony2", "mentions légales"
+    ],
+    "require": {
+        "php": "^5.4|^7.0",
+        "symfony/symfony": ">=2.1.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Chteuchteu\\MentionsLegalesBundle\\": ""
+        }
+    }
+}
